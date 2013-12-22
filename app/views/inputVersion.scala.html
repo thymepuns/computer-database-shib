@@ -1,0 +1,2 @@
+@(form: Form[_], prefix: Option[String] = None)
+<input type="hidden" value="@form(prefix.map(_ + ".").getOrElse("")+"version").value.getOrElse("0")" id="@form(prefix.map(_ + ".").getOrElse("")+"version").id" name="@form(prefix.map(_ + ".").getOrElse("")+"version").name"/>

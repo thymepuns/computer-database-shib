@@ -1,0 +1,8 @@
+This is the play-shib (Scala Hibernate) version of the computer database sample.  In addition to what that sample already demonstrates, it shows:
+- Accessing a JDBC database using play-shib.
+- Achieving, table pagination and CRUD forms.
+
+As play-shib is really just a demo at this point, there are many deficiencies that will (or at least could be) eventually resolved:
+- Use of HQL instead of a strongly typed query
+- No macro-generated "update" method that lets you update relationships
+- No by-name or default parameters in macro methods (macro limitation, but a better interface could be provided)

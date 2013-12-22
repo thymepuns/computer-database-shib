@@ -1,0 +1,40 @@
+@(id: Long, computerForm: Form[(Computer, Option[Long])], companies : Seq[(String, String)])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+@main {
+    
+    <h1>Edit computer</h1>
+    
+    @form(routes.Application.update(id)) {
+        
+        <fieldset>
+
+            @inputVersion(computerForm, Some("computer"))
+            @inputText(computerForm("computer.name"), '_label -> "Computer name")
+            @inputText(computerForm("computer.introduced"), '_label -> "Introduced date")
+            @inputText(computerForm("computer.discontinued"), '_label -> "Discontinued date")
+            
+            @select(
+                computerForm("companyId"),
+                companies, 
+                '_label -> "Company", '_default -> "-- Choose a company --",
+                '_showConstraints -> false
+            )
+        
+        </fieldset>
+        
+        <div class="actions">
+            <input type="submit" value="Save this computer" class="btn primary"> or 
+            <a href="@routes.Application.list()" class="btn">Cancel</a> 
+        </div>
+        
+    }
+    
+    @form(routes.Application.delete(id), 'class -> "topRight") {
+        <input type="submit" value="Delete this computer" class="btn danger">
+    }
+    
+}

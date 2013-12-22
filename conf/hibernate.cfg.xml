@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Shib will set standard properties from the application.conf so the same settings can be used for both evolutions and hibernate -->
+        <property name="hibernate.current_session_context_class">thread</property>
+        
+        <property name="hibernate.c3p0.acquire_increment">1</property>
+        <property name="hibernate.c3p0.idle_test_period">180</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">50</property>
+        <property name="hibernate.c3p0.max_statements">0</property>
+        <property name="hibernate.c3p0.timeout">21600</property>
+        <property name="hibernate.c3p0.preferredTestQuery">SELECT 1 FROM DUAL</property>
+        <property name="hibernate.c3p0.acquireRetryDelay">250</property>
+        <property name="hibernate.c3p0.acquireRetryAttempts">10</property>
+
+        <mapping class="models.mutable.Company"/>
+        <mapping class="models.mutable.Computer"/>
+
+    </session-factory>
+</hibernate-configuration>
